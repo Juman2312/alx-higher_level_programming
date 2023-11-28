@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 
 output = ""
-for i in range(100):
-    if i < 10:
-        output += "0{}".format(i)
-    else:
-        output += "{}".format(i)
-    if i != 99:
-        output += ", "
+for i in range(10):
+    for j in range(i, 10):
+        if i != j:
+            output += "{}{}, ".format(i, j)
 
+output = output[:-2]  # Remove the trailing comma and space
 print(output)
