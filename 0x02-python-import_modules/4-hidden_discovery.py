@@ -1,17 +1,10 @@
 #!/usr/bin/python3
-import marshal
+import sys
+import hidden_4 as hidden
 
-def print_hidden_names():
-    with open('hidden_4.pyc', 'rb') as file:
-        code = marshal.load(file)
+if __name__ != "__main__":
+    exit()
 
-    names = set()
-    for const in code.co_consts:
-        if isinstance(const, str) and not const.startswith('__'):
-            names.add(const)
-
-    for name in sorted(names):
+for name in dir(hidden):
+    if name[0:2] != "__":
         print(name)
-
-if __name__ == "__main__":
-    print_hidden_names()
